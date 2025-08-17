@@ -93,3 +93,11 @@ router.get('/api/trips', requireAuth, async (req, res, next) => {
     next(err);
   }
 });
+```
+
+<p align="center">
+  <a href="index.md">🏠 Home</a> |
+  <a href="cs350_artifact.md">⬅ Previous</a> |
+  <a href="cs465_artifact.md">Next ➡</a>
+</p>
+```
