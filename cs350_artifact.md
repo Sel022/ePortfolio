@@ -66,6 +66,13 @@ It is an ideal example of modular design, testing strategies, and applying a sec
 
 ---
 
+## 🎯 Outcomes Alignment
+- **Outcome 1 – Software Design & Engineering:** modular code (sensor, state, io, display, logger)  
+- **Outcome 2 – Algorithms & Data Structures:** hysteresis logic, finite state machine, timer-based scheduling  
+- **Outcome 4 – Security Mindset:** safe GPIO handling, validated inputs, error handling  
+- **Outcome 5 – Professional Communication:** clear documentation, pseudocode appendix, structured reflection  
+
+
 ## 🛠️ Technical Appendix (Pseudocode)
 
 ```python
@@ -86,3 +93,5 @@ loop tick:
       last_uart_log = now
 
   handle_buttons()  # debounced; adjust setpoint; cycle modes
+
+
