@@ -68,6 +68,12 @@ It is a strong demonstration of backend hardening combined with frontend interac
 
 ---
 
+## 🎯 Outcomes Alignment
+- **Outcome 1 – Software Design & Engineering:** modular Angular components + Express controllers  
+- **Outcome 3 – Databases:** schema design, validation, indexing, pagination  
+- **Outcome 4 – Security Mindset:** authenticated routes, sanitized inputs, least-privilege DB ops  
+- **Outcome 5 – Professional Communication:** REST API documentation, consistent error responses, user-focused feedback  
+
 ## 🛠️ Example (Express Route Sketch)
 
 ```js
