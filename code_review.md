@@ -65,4 +65,13 @@ The intended audience is peers and managers, with the goal of **clarity over hea
 
 ---
 
+<p align="center">
+  <a href="index.md">🏠 Home</a> |
+  <a href="cs350_artifact.md">⬅ Previous</a> |
+  <a href="cs465_artifact.md">Next ➡</a>
+</p>
+
+---
+
+
 This review connects existing features to identified gaps and defines a clear enhancement path, aligned with the **capstone learning outcomes**.
