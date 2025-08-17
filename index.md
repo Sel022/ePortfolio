@@ -24,6 +24,16 @@ This journey has helped me grow from a student focused on writing functional cod
 
 ---
 
+## 🔗 Connection to Artifacts & Outcomes
+- **CS 350 Smart Thermostat** demonstrates **Outcomes 1, 2, 4, 5** through modular embedded design, algorithmic state logic, and secure hardware control.  
+- **CS 465 MEAN App** demonstrates **Outcomes 1, 3, 4, 5** through full-stack design, database optimization, secure API practices, and professional documentation.  
+
+Both artifacts were enhanced using **peer and instructor feedback**:
+- CS 350: added clearer code comments, standardized naming, and a “safe-off” GPIO routine.  
+- CS 465: improved API error messages, documented DTOs, and unified authorization logic.  
+
+---
+
 ## 📂 Artifacts Included
 - [Artifact 1 – CS 350: Smart Thermostat (Raspberry Pi)](cs350_artifact.md)  
 - [Artifact 2 – CS 465: MEAN Full-Stack Travel Booking App](cs465_artifact.md)  
