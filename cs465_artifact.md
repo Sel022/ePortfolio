@@ -1,103 +1,37 @@
 # Artifact 2 — CS 465: MEAN Full-Stack Travel Booking App
 
-![Login Page](assets/mean-login.png)  
-![Trips List](assets/mean-trips.png)  
-![Edit Trip](assets/mean-edit-trip.png)  
+## Brief Description (What/When)
+A **MEAN** stack single-page application for travel booking with **Angular** (SPA), **Express/Node.js** API, and **MongoDB** for persistence. Features include login, viewing trips, and editing trips.
+
+- **Technologies:** Angular, Express, Node.js, MongoDB, JWT/Session  
+- **Core features:** Authenticated login, trips listing, trip edit/create, API consumption via Angular services, RESTful backend  
+- **Original course:** CS 465 – Full Stack Development  
 
 ---
 
-## 📌 Brief Description (What/When)
-A **MEAN stack** single-page application for travel booking:  
-- **Angular** SPA for the frontend  
-- **Express/Node.js** REST API for backend logic  
-- **MongoDB** for persistence  
-
-**Core Features:**  
-- Authenticated login  
-- Viewing trips list  
-- Editing / creating trips  
-- API consumption via Angular services  
-- RESTful backend  
-
-**Technologies:** Angular, Express, Node.js, MongoDB, JWT/Session, Angular HTTP Client, Routing  
-**Original Course:** CS 465 – Full Stack Development  
+## Why This Artifact? (Justification)
+This artifact demonstrates the **Databases** enhancement category, including schema design, validation, indexing, and secure API operations. It also shows full-stack deployment and integration.
 
 ---
 
-## ❓ Why This Artifact?
-This artifact highlights **Database and Security enhancements**, focusing on:  
-- Schema design & validation  
-- Indexing & performance optimization  
-- Secure API operations (authentication + authorization)  
-- Full-stack integration (Angular SPA ↔ Express API ↔ MongoDB)  
-
-It is a strong demonstration of backend hardening combined with frontend interaction in a deployable full-stack application.  
+## Enhancements Implemented
+- **Schema Design:** `users`, `trips`, `bookings` with validation.  
+- **Validation & Sanitization:** server-side checks, protected routes.  
+- **Indexes & Performance:** pagination and indexing on common fields.  
+- **Auth considerations:** secure routes, token/session checks, minimal data exposure.  
+- **Error handling:** centralized error middleware.  
 
 ---
 
-## 🔧 Enhancements Implemented
-
-### Databases (MongoDB) + API Hardening
-- **Schema Design:** Defined `users`, `trips`, `bookings` with required constraints and relationships  
-- **Validation & Sanitization:** Strong input checks, sanitized data, consistent error responses  
-- **Indexes & Performance:** Indexed common query fields (`trips.slug`, `bookings.userId`), added **pagination** for large datasets  
-- **Authentication & Authorization:** Protected sensitive routes, token/session checks before DB ops, minimized data exposure  
-- **Error Handling:** Centralized Express middleware for clean error handling with standardized status codes  
-
----
-
-## 💡 Reflection (Process, Challenges, Feedback)
-
-- **What I Learned:**  
-  - Schema validation prevents inconsistent data and simplifies logic  
-  - Indexing + pagination keeps UI responsive with larger datasets  
-
-- **Challenges:**  
-  - Coordinating Angular route guards with backend authorization  
-  - Solution: Unified auth logic with consistent **401/403 responses**  
-
-- **Feedback Incorporated:**  
-  - Clearer API documentation  
-  - Improved Data Transfer Objects (DTOs)  
-  - User-friendly error messages  
-
-- **Capstone Outcomes Met:**  
-  - **Databases:** schema design, validation, indexing, query optimization  
-  - **Communication:** consistent REST API + documentation  
-  - **Security Mindset:** authenticated routes, sanitized inputs, principle of least privilege  
+## Reflection
+- **What I learned:** Schema definitions and validation simplify logic; indexes + pagination improve UX.  
+- **Challenges:** Coordinating Angular guards with backend auth; solved with consistent 401/403 responses.  
+- **Feedback incorporation:** Improved API docs, DTOs, and clearer error messages.  
+- **Outcomes met:**  
+  - Databases  
+  - Communication  
+  - Security mindset  
 
 ---
 
-## 🎯 Outcomes Alignment
-- **Outcome 1 – Software Design & Engineering:** modular Angular components + Express controllers  
-- **Outcome 3 – Databases:** schema design, validation, indexing, pagination  
-- **Outcome 4 – Security Mindset:** authenticated routes, sanitized inputs, least-privilege DB ops  
-- **Outcome 5 – Professional Communication:** REST API documentation, consistent error responses, user-focused feedback  
-
-## 🛠️ Example (Express Route Sketch)
-
-```js
-// trips.controller.js (sketch)
-router.get('/api/trips', requireAuth, async (req, res, next) => {
-  try {
-    const page = Math.max(1, parseInt(req.query.page || '1', 10));
-    const limit = Math.min(50, Math.max(1, parseInt(req.query.limit || '10', 10)));
-    const cursor = Trip.find({})
-      .sort({ startDate: 1 })
-      .skip((page - 1) * limit)
-      .limit(limit);
-
-    const [items, total] = await Promise.all([cursor.exec(), Trip.countDocuments()]);
-    res.json({ items, page, pages: Math.ceil(total / limit), total });
-  } catch (err) {
-    next(err);
-  }
-});
-```
-
-<p align="center">
-  <a href="index.md">🏠 Home</a> |
-  <a href="cs350_artifact.md">⬅ Previous</a> |
-  <a href="cs465_artifact.md">Next ➡</a>
-</p>
-```
+👉 *Next: [Code Review](code_review.md)*  
