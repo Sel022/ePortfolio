@@ -1,77 +1,37 @@
-# Code Review
+# Code Review Narrative
 
-This informal code review explains existing functionality, analyzes areas for improvement, and walks through the planned enhancements.  
-The intended audience is peers and managers, with the goal of **clarity over heavy technical detail**.
+This informal code review explains existing functionality, analyzes improvement areas, and outlines planned enhancements.  
+The audience is peers or a manager; the goal is clarity over deep technical detail.  
 
 ---
 
 ## A. Existing Functionality
-
-### CS 350 – Smart Thermostat (Raspberry Pi)
-- Reads room temperature via **AHT20 sensor (I2C)**  
-- Implements system states: **OFF, HEAT, COOL**  
-- Provides visual feedback with **LEDs** (red/blue)  
-- Displays status and time on **16x2 LCD**  
-- Logs state, room temperature, and setpoint via **UART** every 30 seconds  
-
-### CS 465 – MEAN Full-Stack Travel App
-- Implements **Single-Page Application (SPA)** routing with Angular  
-- Provides **user login workflow** and session handling  
-- Displays a **trips listing** with interactive navigation  
-- Allows **trip editing** via form  
-- REST API integrates with **MongoDB** for data persistence  
+- **CS 350 Thermostat:** Sensor reads (AHT20/I2C), state modes (OFF/HEAT/COOL), LEDs + LCD updates, UART logging cadence.  
+- **CS 465 MEAN App:** SPA routing, login workflow, trips listing, edit trip form; REST API consuming MongoDB.  
 
 ---
 
 ## B. Code Analysis (Improvement Targets)
-
-- **Structure & Readability**  
-  - Improve modularity (separate sensor, display, control logic)  
-  - Use meaningful naming conventions  
-
-- **Logic & Efficiency**  
-  - Clarify state machine transitions  
-  - Introduce **non-blocking timers** to replace fixed delays  
-  - Add pagination for large data sets (CS 465)  
-
-- **Testing & Observability**  
-  - Create mockable interfaces for hardware components  
-  - Strengthen logging for debugging and monitoring  
-
-- **Security**  
-  - Enforce authentication/authorization checks (CS 465)  
-  - Validate user inputs against injection attacks  
-  - Apply **least-privilege operations** on MongoDB  
-
-- **Documentation**  
-  - Add consistent commenting across modules  
-  - Maintain updated README and developer notes  
+- Structure & readability: modularity, naming conventions.  
+- Logic & efficiency: state machine clarity, non-blocking timers, pagination.  
+- Testing & observability: mockable interfaces, logging.  
+- Security: auth checks, input validation, least-privilege DB ops.  
+- Commenting & documentation.  
 
 ---
 
-## C. Enhancement Plan (and Outcomes Alignment)
-
-### CS 350 – Smart Thermostat
-- **Software Design & Engineering**: Split project into modules (sensor service, LCD service, UART service); improve button handling for reliability  
-- **Algorithms & Data Structures**: Introduce hysteresis and timer-based scheduling to stabilize heating/cooling transitions and avoid rapid switching  
-
-### CS 465 – MEAN Full-Stack Travel App
-- **Databases**: Strengthen schema validation; add database indexes for faster lookups; secure API routes with authentication; add pagination for trip queries  
+## C. Enhancement Plan & Outcomes
+- **CS 350:** Module split, LCD/UART services, robust button handling, hysteresis control, timer-based scheduling.  
+- **CS 465:** Schema validation, indexes, protected routes, pagination.  
 
 ---
 
-## 📺 Code Review Video
-👉 [Watch Code Review Video](YOUR_VIDEO_LINK_HERE)  
+## D. Video Walkthrough (to be recorded)
+In the video walkthrough, I will:  
+1. Introduce the artifacts (CS 350 thermostat, CS 465 MEAN app).  
+2. Explain existing functionality in the original code.  
+3. Identify areas for improvement (modularity, validation, security, etc.).  
+4. Walk through enhancements I implemented.  
+5. Connect the work to **CS program outcomes**.  
 
----
-
-<p align="center">
-  <a href="index.md">🏠 Home</a> |
-  <a href="cs350_artifact.md">⬅ Previous</a> |
-  <a href="cs465_artifact.md">Next ➡</a>
-</p>
-
----
-
-
-This review connects existing features to identified gaps and defines a clear enhancement path, aligned with the **capstone learning outcomes**.
+👉 *The video will be hosted on YouTube and linked here once uploaded.*  
