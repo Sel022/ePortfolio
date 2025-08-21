@@ -1,63 +1,69 @@
 # CS 499 ePortfolio
 
-Welcome to my **CS 499 – Computer Science Capstone ePortfolio**.  
-This portfolio demonstrates my growth as a computer scientist through reflection, a code review, and two enhanced artifacts from prior coursework.
+Welcome to my **CS 499 ePortfolio**, the capstone of my Computer Science degree program.  
+This site demonstrates my professional growth as a computer scientist through a **self-assessment**, **two enhanced artifacts**, and **code reviews**.  
 
 ---
 
-## 🔗 Quick Navigation
+## 📌 Quick Navigation
 - [Professional Self-Assessment (Home)](index.md)  
-- [Artifact 1 – CS 350: Raspberry Pi Smart Thermostat](cs350_artifact.md)  
-- [Artifact 2 – CS 465: MEAN Full-Stack Travel Booking App](cs465_artifact.md) *(coming soon)*  
-- [Code Review (Video + Notes)](code_review.md)  
+- [Artifact 1 – CS 350: Smart Thermostat (Raspberry Pi)](cs350_artifact.md)  
+- [Artifact 2 – CS 465: MEAN Full-Stack Travel Booking App](cs465_artifact.md)  
+- [Code Reviews](code_review.md)  
 
 ---
 
-## 📖 Professional Self-Assessment
-Throughout the computer science program at SNHU, I strengthened skills in:  
-
-- **Software Design & Engineering**: modular, testable, maintainable code  
-- **Algorithms & Data Structures**: efficient, reliable logic with real-time constraints  
-- **Databases**: schema design, indexing, validation, and secure queries  
-- **Security Mindset**: safe GPIO access, sanitized inputs, authenticated routes  
-- **Professional Communication**: documentation, code reviews, and clear narratives  
-
-This portfolio demonstrates how I applied these outcomes in real-world style projects and then enhanced them during the capstone.
+## 🎯 Capstone Requirements
+This ePortfolio fulfills all CS 499 Capstone project requirements by including:  
+- A **Professional Self-Assessment**  
+- **Two enhanced artifacts** with both original and improved code, narratives, and reflections  
+- A **Code Review** video and review notes  
+- A clear, professional presentation of work in GitHub Pages following **UI/UX best practices**  
 
 ---
 
-## 📂 Artifacts
+## 📂 Artifacts Overview
 
-### Artifact 1 – CS 350: Smart Thermostat (Raspberry Pi)
-A hardware/software integration project using a Raspberry Pi, AHT20 temperature sensor, LEDs, LCD, and buttons.  
-Enhanced with modular code design, state machine control, hysteresis logic, and secure GPIO handling.  
-👉 [View Artifact 1](cs350_artifact.md)  
+### 🖥️ Artifact 1 — CS 350: Smart Thermostat (Raspberry Pi)
+- **Original Course:** CS 350 – Emerging Systems Architectures and Technologies  
+- **Description:** A Raspberry Pi–based thermostat integrating an AHT20 temperature sensor, LCD, LEDs, and button controls.  
+- **Skills Demonstrated:** Embedded systems design, real-time programming, GPIO/I2C/UART integration, modular coding.  
+- **Enhancements:** Introduced modular architecture, hysteresis control, debounced inputs, UART logging, and safer GPIO handling.  
 
----
-
-### Artifact 2 – CS 465: MEAN Full-Stack Travel Booking App
-A full-stack travel booking web application built with Angular, Express, Node.js, and MongoDB.  
-Enhanced with database schema validation, indexing, route protection, and pagination.  
-👉 [View Artifact 2](cs465_artifact.md) *(coming soon)*  
+📄 [Read Artifact 1 Narrative](cs350_artifact.md)
 
 ---
 
-## 🎥 Code Review
-The code review presents my analysis of both artifacts, highlighting existing functionality, areas for improvement, and the enhancements I made.  
-👉 [View Code Review](code_review.md)  
+### 🌐 Artifact 2 — CS 465: MEAN Full-Stack Travel Booking App
+- **Original Course:** CS 465 – Full Stack Development  
+- **Description:** A MEAN stack single-page application for travel booking, with login, trips listing, and trip editing features.  
+- **Skills Demonstrated:** Full-stack development, REST API design, database integration, and secure authentication.  
+- **Enhancements:** Added MongoDB schema validation, JWT-based authentication, Angular `AuthInterceptor`, route guards, pagination, and centralized error handling.  
+
+📄 [Read Artifact 2 Narrative](cs465_artifact.md)
 
 ---
 
-## 🎯 Capstone Outcomes Alignment
-This ePortfolio demonstrates my achievement of the following program outcomes:
-- Apply **software engineering and design** principles  
-- Utilize **algorithms and data structures** effectively  
-- Work with **databases** and secure data operations  
-- Apply a **security-first mindset** to design and implementation  
-- Communicate clearly through **documentation and review**  
+## 🎥 Code Reviews
+- **CS 350 Code Review:** [View Notes](code_review.md)  
+- **CS 465 Code Review:** [View Notes](artifact2_CS465/code_review_cs465.md)  
+
+*(A combined video walkthrough is hosted separately and linked here.)*  
+
+---
+
+## 📈 Professional Self-Assessment
+My **Professional Self-Assessment** reflects growth in:  
+- **Software Design & Engineering** – modular, testable, and maintainable systems  
+- **Algorithms & Data Structures** – efficient, reliable control and scheduling  
+- **Databases** – schema design, validation, indexing, and secure queries  
+- **Security Mindset** – authentication, authorization, and safe input handling  
+- **Professional Communication** – documentation, code review, and peer communication  
+
+📄 [Read Self-Assessment](index.md)
 
 ---
 
 ## 🏁 Closing Thoughts
-This ePortfolio reflects not just technical proficiency but my growth into a professional capable of delivering robust, secure, and maintainable solutions.  
-I am confident that these skills transfer directly into **real-world software engineering roles**.
+This ePortfolio showcases my ability to design, enhance, and communicate professional-grade software solutions.  
+Through these artifacts, I demonstrate readiness to contribute as a **full-stack and embedded systems engineer**, applying both technical depth and professional practices.
