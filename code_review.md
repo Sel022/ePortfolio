@@ -1,125 +1,78 @@
-CS-350 Thermostat — Code Review (Original → Enhanced)
+# Code Reviews
 
-Scope & Audience. This review explains functionality, issues, and improvements made to the Module 7 thermostat. Audience: peers/manager; emphasis on clarity, reliability, and maintainability.
-
-A. Existing Functionality (Original)
-
-Hardware: AHT20 (I²C) temp sensor, 16×2 LCD, two PWM LEDs (heat/cool), three buttons (mode/up/down).
-
-Behavior: Reads temperature once at start, then simulates room temp via buttons; cycles modes; toggles LCD lines; fades LEDs; prints UART line ~30s.
-
-Strengths: Clear hardware mapping, straightforward LED feedback, simple state cycling.
-
-B. Issues & Improvement Targets
-
-Single monolithic file → hard to unit-test or extend.
-
-No hysteresis → possible rapid toggling around setpoint.
-
-Blocking LED fades → long time.sleep() loops cause sluggish input/UI.
-
-Sensor sampling: initial snapshot “locks” the temp; no continuous reads.
-
-Buttons: no formal debouncing → false triggers.
-
-Observability: UART only; no structured persistence to analyze trends.
-
-Maintainability/Safety: no GPIO cleanup abstraction; mixed concerns.
-
-C. Enhancement Summary
-
-Design & Engineering: split into modules (app.py, config.py, sensor.py, state.py, io_hw.py, display.py, telemetry.py) for isolation and testing; safe cleanup; named constants.
-
-Algorithms & Data: added hysteresis (+/-1°F) and non-blocking timers for sensor/LCD/logging; deterministic state logic.
-
-Security/Robustness: debounced buttons; exception handling for sensor reads; minimal DB write on failure fallback.
-
-Databases (from CS-340): added MongoDB telemetry with timestamped documents and an index on ts to support analysis/dashboards; consistent schema fields (state, tempF, setpointF).
-
-Observability: kept UART prints and added persistent telemetry for later visualization (Grafana, Aggregation Pipeline, notebooks).
-
-D. Outcome Alignment
-
-Software Design & Engineering: modular architecture; dependency boundaries; testability.
-
-Algorithms & Data Structures: hysteresis, timer scheduling, deterministic FSM.
-
-Databases: MongoDB logging, indexing, structured documents.
-
-Security Mindset: debouncing (input validation), safe GPIO off-path, controlled error handling.
-
-Communication: clear file layout, names, and comments.
-
-E. How to Run (Enhanced)
-# On Raspberry Pi
-pip3 install adafruit-circuitpython-charlcd adafruit-circuitpython-ahtx0 pymongo
-# Set MongoDB in config.py (MONGO_URI). For local DB, install MongoDB or use Atlas URI.
-python3 app.py
-
-
-# Code Review — CS 465 MEAN Full-Stack Travel Booking App
-
-This code review covers the **original CS465 travel booking application** and the **enhanced version with database and security improvements**.  
-The goal is to highlight functionality, improvement areas, and rationale for enhancements.
+This page provides written reviews for the two enhanced artifacts in my CS 499 ePortfolio.  
+Each review explains the **original functionality**, identifies **areas for improvement**, and outlines the **enhancement plan** aligned with program outcomes.  
 
 ---
 
-## A. Existing Functionality
-- **Client (Angular)**  
-  - Login page with form validation.  
-  - Trips list with navigation to detail pages.  
-  - Edit trip form for updating trip information.  
-  - Angular services consume REST API.  
+## 🖥️ Code Review – CS 350: Smart Thermostat (Raspberry Pi)
 
-- **Server (Node.js/Express)**  
-  - API routes for users and trips.  
-  - MongoDB persistence for travel booking data.  
-  - Basic error handling.  
+### A. Existing Functionality
+The original CS 350 thermostat project used a Raspberry Pi with Python to:  
+- Read temperature from an **AHT20 sensor (I2C)**  
+- Display time, temperature, and system state on a **16×2 LCD**  
+- Indicate HEAT/COOL modes using **PWM-controlled LEDs**  
+- Allow user input via three buttons (state toggle, setpoint adjust)  
+- Log data periodically through **UART**  
 
----
+### B. Code Analysis (Improvement Targets)
+- **Structure & Readability:** Monolithic file, limited modularity, difficult to test.  
+- **Logic & Efficiency:** Lacked hysteresis, making setpoint control noisy. Blocking delays slowed responsiveness.  
+- **Error Handling:** No handling for I2C read errors or button bounce.  
+- **Testability:** Direct hardware calls made mocking and simulation difficult.  
+- **Documentation:** Minimal comments and inconsistent naming.  
 
-## B. Code Analysis (Improvement Targets)
-1. **Structure & Readability**  
-   - Client services lacked centralized auth handling.  
-   - Server controllers mixed logic and error responses.  
+### C. Enhancement Plan
+- **Software Design & Engineering:** Refactored into modules (`sensor.py`, `state.py`, `io.py`, `display.py`, `logger.py`, `app.py`) for clarity and maintainability.  
+- **Algorithms & Data Structures:** Added **hysteresis control** and **non-blocking timers** for smoother control and logging.  
+- **Security & Reliability:** Input validation for setpoints, debounced button handling, safe GPIO cleanup.  
+- **Professional Practices:** Increased code comments, consistent naming, and clear separation of concerns.  
 
-2. **Database Layer**  
-   - Minimal schema constraints; risk of invalid data.  
-   - No indexes → performance issues with large datasets.  
-
-3. **Security**  
-   - Missing route protection.  
-   - No sanitization of inputs → injection risk.  
-   - Password handling simplistic.  
-
-4. **Performance & UX**  
-   - No pagination on trips endpoint (all results returned).  
-   - Client-side auth state not persisted.  
-
-5. **Documentation**  
-   - Limited inline comments and API route docs.  
+### Outcome Alignment
+- **Design & Engineering:** Improved modularity and test hooks.  
+- **Algorithms & Data Structures:** Implemented state machine and timing-based control.  
+- **Security Mindset:** Ensured safe access to GPIO and validated user inputs.  
+- **Communication:** Code comments and organized architecture improved readability.  
 
 ---
 
-## C. Enhancements Implemented
-- **Databases**: Defined `users`, `trips`, `bookings` schemas with validation (required fields, types). Added indexes to `trips.slug` and `bookings.userId`.  
-- **Security**: Implemented JWT authentication, added an Angular `AuthInterceptor` to auto-attach tokens, and protected server routes.  
-- **API & Server**: Added centralized error-handling middleware, standardized JSON error responses, and secured update/delete operations.  
-- **Client**: Integrated Angular route guards, improved TripService with typed DTOs, added booking feature consuming new API endpoints.  
-- **Performance**: Implemented pagination on `/api/trips` route to avoid loading all records.  
+## 🌐 Code Review – CS 465: MEAN Full-Stack Travel Booking App
+
+### A. Existing Functionality
+The original CS 465 project implemented a MEAN stack application with:  
+- **Angular SPA** frontend featuring login, trips list, and trip editing form  
+- **Express/Node.js REST API** for serving trips and handling updates  
+- **MongoDB** backend for persistent storage  
+- Basic CRUD functionality for user trips  
+
+### B. Code Analysis (Improvement Targets)
+- **Databases:** Schema definitions were minimal and lacked strong validation.  
+- **Security:** No robust authentication/authorization; API routes were open.  
+- **Performance:** Trip listing lacked pagination or query optimization.  
+- **Error Handling:** Responses were inconsistent and lacked centralized handling.  
+- **Frontend:** No HTTP interceptors or route guards to protect user navigation.  
+
+### C. Enhancement Plan
+- **Databases:** Added stronger **schemas with validation and sanitization**, as well as **indexes** for common queries.  
+- **Security:** Implemented **JWT-based authentication**, protected routes, and Angular `AuthInterceptor` for attaching tokens.  
+- **Performance:** Added **pagination** and query limits for trips list.  
+- **Error Handling:** Centralized error middleware in Express and consistent HTTP status codes.  
+- **Frontend:** Introduced Angular **route guards** and improved UI feedback on errors.  
+
+### Outcome Alignment
+- **Databases:** Demonstrated proper schema design, validation, and indexing.  
+- **Security Mindset:** Enforced authentication and safe API patterns.  
+- **Design & Engineering:** Integrated client and server cleanly with documented APIs.  
+- **Communication:** Clear API documentation and frontend/backend consistency improved maintainability.  
 
 ---
 
-## D. Outcomes Alignment
-- **Databases**: Stronger schema enforcement, indexing, validation.  
-- **Security Mindset**: Authentication, authorization, sanitized inputs, least-privilege DB ops.  
-- **Software Design & Engineering**: Modularization of controllers, improved client services.  
-- **Communication**: Documented API endpoints and improved error messages.  
+## 🎯 Closing Note
+Together, these reviews demonstrate the process of evaluating original code, identifying key areas for improvement, and applying enhancements that align with the **CS program outcomes**:  
+- **Software Design & Engineering**  
+- **Algorithms & Data Structures**  
+- **Databases**  
+- **Security**  
+- **Professional Communication**  
 
----
-
-## E. Reflection
-Through this review, I learned the importance of **consistent security practices across front and back end**. Adding database validation and token-based authentication reduced both runtime errors and potential vulnerabilities. Feedback from peers was incorporated into the enhanced API docs and DTOs.  
-
-The final system is more secure, performant, and professional, demonstrating my ability to **design and enhance full-stack applications** with industry best practices.
-
+These reviews, along with the enhanced codebases, show my ability to critically analyze, improve, and communicate about real-world software systems.
