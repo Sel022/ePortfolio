@@ -1,13 +1,13 @@
 # CS 499 ePortfolio
 
-Welcome to my ePortfolio for **CS 499 – Computer Science Capstone**.  
-This site presents my **Professional Self-Assessment**, two enhanced **artifacts**, and my **Code Review**.
+Welcome to my **Computer Science Capstone ePortfolio**.  
+This repository contains artifacts, enhancements, narratives, and code reviews from my coursework.
 
-## 📂 Quick Navigation
-- [Professional Self-Assessment (Home)](index.md)
-- [Artifact 1 – CS 350: Raspberry Pi Smart Thermostat](cs350_artifact.md)
-- [Artifact 2 – CS 465: MEAN Full-Stack Travel Booking App](cs465_artifact.md)
-- [Code Review (Video + Notes)](code_review.md)
+## Contents
+- [Professional Self-Assessment](index.md)
+- [Artifact 1 – CS 350 Smart Thermostat](artifact1_CS350/cs350_artifact.md)
+- [Artifact 2 – CS 465 MEAN Travel Booking App](artifact2_CS465/cs465_artifact.md)
+- [Code Review](code_review.md)
 
 ---
 
