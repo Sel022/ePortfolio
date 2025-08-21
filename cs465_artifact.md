@@ -2,61 +2,76 @@
 
 ![Login Page](assets/mean-login.png)  
 ![Trips List](assets/mean-trips.png)  
-![Edit Trip](assets/mean-edit-trip.png)  
+![Edit Trip](assets/mean-edit-trip.png)
 
 ---
 
-## 📖 Brief Description (What/When)
-A **MEAN stack** single-page application (SPA) for travel booking with **Angular** frontend, **Express/Node.js** backend, and **MongoDB** database persistence.  
-Features include user login, viewing trips, and editing trips.  
+## 📌 Brief Description (What/When)
+This artifact is a **MEAN stack single-page travel booking application** developed in **CS 465 – Full Stack Development**.  
+The project consists of an **Angular client** and a **Node.js/Express server** with **MongoDB** persistence.  
 
-- **Technologies:** Angular, Express, Node.js, MongoDB, JWT/Session, HTTP Client, Routing  
-- **Core features:** Authenticated login, trips listing, trip edit/create, API consumption via Angular services, RESTful backend  
-- **Original course:** CS 465 – Full-Stack Development  
+- **Technologies:** Angular, Express, Node.js, MongoDB, JWT, HTTP Client, Angular Routing  
+- **Core Features (original):** Login workflow, view trips, edit trips, API consumption via Angular services  
+- **Enhanced Features:** Database schema validation, JWT-based authentication, Angular `AuthInterceptor`, route guards, pagination, error handling, and secure queries  
 
 ---
 
-## 💡 Why This Artifact?
-This artifact was chosen because it demonstrates **database design and integration**, applied from **CS 340 Database Management** into a full-stack application.  
-The enhancements show secure schema validation, indexing, pagination, and error handling — turning a functional prototype into a more production-ready system.  
+## 🎯 Why This Artifact?
+I chose this artifact because it highlights my ability to **design, enhance, and secure full-stack applications**, showcasing the **Databases** and **Security Mindset** outcomes.  
+Enhancing this app gave me practical experience in **schema validation**, **REST API design**, and **front-to-back authentication**.  
 
 ---
 
 ## 🔧 Enhancements Implemented
+- **Databases (MongoDB):**  
+  - Added schema validation, required constraints, and field typing.  
+  - Introduced indexes (`trips.slug`, `bookings.userId`) for scalability.  
+  - Implemented pagination for trips listing.  
 
-### 1. Databases (from CS 340)
-- Schema design with validation & sanitization  
-- Pre-save checks in Mongoose models  
-- Indexed fields (e.g., slug) for query optimization  
-- Added pagination in GET endpoints for scalability  
-- Centralized error middleware  
+- **Security:**  
+  - JWT-based authentication in server routes.  
+  - Angular `AuthInterceptor` for attaching tokens to requests.  
+  - Route guards in Angular to protect secure pages.  
+  - Input sanitization and principle of least privilege in DB operations.  
 
-### 2. Security & API Hardening
-- Protected sensitive routes with **requireAuth** middleware  
-- Enforced least-privilege access (users can only create/manage their own trips)  
-- Sanitized inputs before DB operations  
-- Standardized status codes & error responses  
+- **API & Backend:**  
+  - Centralized error middleware for cleaner responses.  
+  - Standardized status codes and DTOs for consistency.  
 
-### 3. Frontend Enhancements
-- Angular services now support **pagination parameters**  
-- Integrated auth tokens into HTTP requests  
-- Improved error feedback in the UI  
-
----
-
-## 🔎 Reflection
-- **What I learned:** Database schema design and indexes reduce bugs and improve performance. Pagination ensures scalability, and strong authentication provides security.  
-- **Challenges:** Coordinating Angular guards with backend middleware; handling pagination without breaking UI.  
-- **Feedback Applied:** Clearer API docs, improved error messages, standardized DTOs.  
+- **Frontend (Angular):**  
+  - Improved TripService with typed responses.  
+  - Added BookingService consuming new API endpoints.  
+  - Better UX with consistent error handling and form validation.  
 
 ---
 
-## 🎯 Outcomes Met
-- **Databases:** schema, indexing, validation, safe query patterns  
-- **Software Design & Engineering:** modular backend, Angular services  
-- **Security Mindset:** authenticated routes, sanitized inputs  
-- **Professional Communication:** improved UX docs & messages  
+## 💡 Reflection (Process, Challenges, Feedback)
+- **What I learned:** Secure API design requires thinking across **client and server**. Schema enforcement prevents invalid data, while JWT and guards ensure only authenticated users can access sensitive operations.  
+- **Challenges:** Syncing Angular route guards with backend token checks — solved by unifying auth logic.  
+- **Feedback incorporated:** Clearer API docs, improved DTO definitions, and more user-friendly error messages.  
+- **Outcomes met:**  
+  - **Databases:** schema validation, indexing, safe queries  
+  - **Security Mindset:** authentication, authorization, input sanitization  
+  - **Software Design & Engineering:** modular server controllers and Angular services  
+  - **Communication:** API docs, comments, and professional markdown  
 
 ---
 
-👉 *Next: [Code Review](code_review.md)*  
+## 📂 Supporting Files
+- [Original Code (Client + Server)](artifact2_CS465/original_code/)  
+- [Enhanced Code (Client + Server + DB/Security Enhancements)](artifact2_CS465/enhanced_code/)  
+- [Narrative Document (DOCX)](Artifact2_CS465_Narrative.docx)  
+- [Code Review (Markdown)](artifact2_CS465/code_review_cs465.md)  
+
+---
+
+## 📌 Capstone Outcomes Alignment
+This artifact demonstrates my achievement of the following program outcomes:  
+- **Databases:** improved schemas, indexes, and queries  
+- **Security Mindset:** secure API design and authorization  
+- **Software Design & Engineering:** maintainable full-stack structure  
+- **Professional Communication:** professional documentation and review  
+
+---
+
+👉 *Next: [Code Review](artifact2_CS465/code_review_cs465.md)*  
