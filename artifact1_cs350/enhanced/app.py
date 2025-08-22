@@ -80,10 +80,16 @@ def main():
                 show_temp = not show_temp
                 last_lcd = now
 
-            # UART logging
-            if now - last_uart >= UART_PERIOD_S:
-                uart_log(STATE_NAMES[int(tstat.mode)], temp_f, tstat.setpoint_f)
-                last_uart = now
+
+            # --- UART + Database Logging ---
+            if time.monotonic() - last_uart_time > 30:
+    # UART log for debugging
+                print(f"{state_names[system_state].lower()},{room_temp:.1f},{int(set_point)}")
+    
+    # Save to MongoDB
+                write_log(state_names[system_state], room_temp, set_point)
+    
+                last_uart_time = time.monotonic()
 
             # Database logging
             if now - last_db >= DB_PERIOD_S:
