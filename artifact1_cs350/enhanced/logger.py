@@ -1,17 +1,18 @@
 # logger.py
-import time
-from db_config import get_db
+from config import get_db
+import datetime
 
-db = get_db()
-logs = db["logs"]
-
-def write_log(state, temp, setpoint):
+def write_log(state, temperature, setpoint):
+    """
+    Writes a log entry into the MongoDB 'logs' collection.
+    """
+    db = get_db()
+    logs = db["logs"]
     log_entry = {
-        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "timestamp": datetime.datetime.utcnow(),
         "state": state,
-        "temperature": temp,
+        "temperature": temperature,
         "setpoint": setpoint
     }
     logs.insert_one(log_entry)
-    print(f"[DB LOGGED] {log_entry}")
-
+    print("[DB] Log saved:", log_entry)
