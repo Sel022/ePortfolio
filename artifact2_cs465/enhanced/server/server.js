@@ -19,11 +19,9 @@ app.use(cors({ origin: process.env.CORS_ORIGIN || true }));
 app.use(express.json());
 app.use(morgan('dev'));
 
-// DB
-mongoose.connect(process.env.MONGO_URI, {
-  autoIndex: true
-}).then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('Mongo error:', err.message));
+const connectDB = require('./config/db');
+connectDB();
+
 
 // Routes
 app.use('/api/auth', authRoutes);
