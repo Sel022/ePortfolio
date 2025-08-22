@@ -31,3 +31,14 @@ MONGO_URI = "mongodb://localhost:27017"   # change to your Atlas URI if needed
 MONGO_DB = "snhu_cs350"
 MONGO_COLL = "thermostat_logs"
 
+# config.py
+from pymongo import MongoClient
+
+def get_db():
+    """
+    Connects to MongoDB and returns the database object.
+    Update the connection string if using MongoDB Atlas or remote server.
+    """
+    client = MongoClient("mongodb://localhost:27017/")  
+    db = client["thermostat_db"]
+    return db
