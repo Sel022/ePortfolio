@@ -19,7 +19,7 @@ app.use(cors({ origin: process.env.CORS_ORIGIN || true }));
 app.use(express.json());
 app.use(morgan('dev'));
 
-const connectDB = require('./config/db');
+const connectDB = require('./database/db');
 connectDB();
 
 
