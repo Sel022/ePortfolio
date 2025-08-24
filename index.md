@@ -63,10 +63,9 @@ My **Professional Self-Assessment** reflects growth in:
 📄 [Read Self-Assessment](index.md)
 
 ---
+ ** Professional Self-Assessment**
 
-**Self- Assesement**
 
-**Introduction**
 I am Path ,throughout my studies at Southern New Hampshire University, I have gained valuable knowledge and practical skills in computer science, software development, and data analysis. These courses, combined with my prior experience in software testing, have allowed me to grow both academically and professionally.
 This self-evaluation highlights what I have learned from my courses, how I have applied this knowledge, and how these skills will support my career goals in the future.
 What I Have Learned
