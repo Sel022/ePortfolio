@@ -12,7 +12,7 @@ This repository contains artifacts, enhancements, narratives, and code reviews f
 ---
 
 > ✅ This ePortfolio aligns to the **capstone requirements**:  
-> - ** Professional Self-Assessment**
+> - Professional Self-Assessment
 
 ## 📝 Introduction  
 I am **Path**. Throughout my studies at *Southern New Hampshire University*, I have gained valuable knowledge and practical skills in **computer science, software development, and data analysis**. These courses, combined with my prior experience in **software testing**, have allowed me to grow both academically and professionally.  
